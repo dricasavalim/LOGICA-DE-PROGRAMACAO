@@ -1,0 +1,11 @@
+#include <iostream>
+
+int main()
+{
+    float grausC, grausF;
+    std::cout << "Digite a temperatura em graus Farenheit: ";
+    std::cin >> grausF;
+    grausC = (5 * (grausF - 32) / 9);
+    std::cout << grausF << " graus Farenheit correspondem a " << grausC << " graus Celsius";
+    return 0;
+}
