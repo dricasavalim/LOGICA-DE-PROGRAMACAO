@@ -1,0 +1,13 @@
+#include <iostream>
+
+int main()
+{
+    float base, altura, area;
+    std::cout << "Digite o valor da base do triangulo: ";
+    std::cin >> base;
+    std::cout << "Digite o valor da altura do triangulo: ";
+    std::cin >> altura;
+    area = (base * altura) / 2;
+    std::cout << "A area do triangulo eh: " << area << std::endl;
+    return 0;
+}
