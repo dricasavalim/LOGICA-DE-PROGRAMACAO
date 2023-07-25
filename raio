@@ -1,0 +1,13 @@
+//execute o código no online cpp
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+    float raio, area;
+    std::cout << "Digite o valor do raio: ";
+    std::cin >> raio;
+    area = M_PI * pow(raio, 2);
+    std::cout << "A area eh " << area;
+    return 0;
+}
