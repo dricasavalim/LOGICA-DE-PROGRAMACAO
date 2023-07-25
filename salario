@@ -1,0 +1,13 @@
+#include <iostream>
+
+int main()
+{
+    float salarioHr, salarioMe, horasTrabalhadas;
+    std::cout << "Digite quanto voce ganha por hora: ";
+    std::cin >> salarioHr;
+    std::cout << "Digite quantas horas voce trabalhou esse mes: ";
+    std::cin >> horasTrabalhadas;
+    salarioMe = salarioHr * horasTrabalhadas;
+    std::cout << "Seu salario total do mes eh de R$" << salarioMe;
+    return 0;
+}
