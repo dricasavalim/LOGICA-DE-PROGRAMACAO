@@ -1,0 +1,12 @@
+//refaça este código acrescentando conversor de litros para ml e kilos para gramas
+#include <iostream>
+
+int main()
+{
+    float metros, centimetros;
+    std::cout << "Digite a medida em metros: ";
+    std::cin >> metros;
+    centimetros = metros * 100;
+    std::cout << metros << "m correspondem a " << centimetros << "cm";
+    return 0;
+}
