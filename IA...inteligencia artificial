@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+Using namespace std;
+Int main() {
+    Cout << “Olá, sou a Inteligência Artificial! Vamos brincar?” << endl;
+    String nome;
+    Cout << “Qual é o seu nome? “;
+    Cin >> nome;
+    Int idade;
+    Cout << “Quantos anos você tem, “ << nome << “? “;
+    Cin >> idade;
+    String brincadeira;
+    Cout << “O que você gosta de brincar, “ << nome << “? “;
+    Cin.ignore(); // Limpar o buffer de entrada
+    Getline(cin, brincadeira);
+    String corFavorita;
+    Cout << “Qual é a sua cor favorita, “ << nome << “? “;
+    Cin >> corFavorita;
+    Char comeSaladas;
+    Cout << “Você gosta de comer saladas? (S/N) “;
+    Cin >> comeSaladas;
+
+    If (idade >= 6) {
+        Cout << “Que legal, você já está na idade de aprender a tabuada!” << endl;
+        Int resposta;
+        Do {
+            Cout << “Qual é a resposta de 6x7? “;
+            Cin >> resposta;
+            If (resposta == 42) {
+                Cout << “Parabéns, você acertou!” << endl;
+                Break;
+            } else {
+                Cout << “Tente novamente.” << endl;
+            }
+        } while (true);
+    }
+    If (corFavorita == “verde” || corFavorita == “Verde”) {
+        Cout << “Verde é uma cor muito bonita, “ << nome << “!” << endl;
+    } else {
+        Cout << “Ah, “ << corFavorita << “ é uma cor legal também.” << endl;
+    }
+
+
+
+
+
+
+    If (comeSaladas == ‘S’ || comeSaladas == ‘s’) {
+        Cout << “Isso é ótimo, comer saladas é saudável!” << endl;
+    } else {
+        Cout << “Tudo bem, nem todo mundo gosta de saladas.” << endl;
+    }
+
+    Cout << “Foi legal conversar com você, “ << nome << “. Até a próxima!” << endl;
+
+    Return 0;
+}
+
+
