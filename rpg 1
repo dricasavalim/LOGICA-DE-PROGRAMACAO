@@ -1,39 +1,39 @@
 #include <iostream>
 #include <string>
-Using namespace std;
-Int main() {
-    Cout << “Bem-vindo ao Jogo de RPG!” << endl;
-    Cout << “Você está em uma floresta escura e misteriosa.” << endl;
-    String escolha;
-        Cout << “Você quer seguir pela ‘Trilha Esquerda’ ou pela ‘Trilha Direita’?” << endl;
-    Cin >> escolha;
-    If (escolha == “Trilha Esquerda”) {
-        Cout << “Você encontrou um rio. Você quer ‘Nadar’ ou ‘Procurar uma Ponte’?” << endl;
-        Cin >> escolha;
-        If (escolha == “Nadar”) {
-            Cout << “Você nadou através do rio com sucesso e chegou à outra margem.” << endl;
-        } else if (escolha == “Procurar uma Ponte”) {
-            Cout << “Você encontrou uma ponte segura e atravessou o rio.” << endl;
+using namespace std;
+int main() {
+    cout << “bem-vindo ao jogo de rpg!” << endl;
+    cout << “você está em uma floresta escura e misteriosa.” << endl;
+    string escolha;
+        cout << “você quer seguir pela ‘trilha esquerda’ ou pela ‘trilha direita’?” << endl;
+    cin >> escolha;
+    if (escolha == “trilha esquerda”) {
+        cout << “você encontrou um rio. você quer ‘nadar’ ou ‘procurar uma ponte’?” << endl;
+        cin >> escolha;
+        if (escolha == “nadar”) {
+            cout << “você nadou através do rio com sucesso e chegou à outra margem.” << endl;
+        } else if (escolha == “procurar uma ponte”) {
+            cout << “você encontrou uma ponte segura e atravessou o rio.” << endl;
         } else {
-            Cout << “Escolha inválida. Você se perdeu na floresta.” << endl;
+            cout << “escolha inválida. você se perdeu na floresta.” << endl;
         }
-    } else if (escolha == “Trilha Direita”) {
-        Cout << “Você se deparou com um misterioso templo antigo.” << endl;
-        Cout << “Você quer ‘Entrar’ no templo ou ‘Dar Meia-Volta’?” << endl;
-        Cin >> escolha;
+    } else if (escolha == “trilha direita”) {
+        cout << “você se deparou com um misterioso templo antigo.” << endl;
+        cout << “você quer ‘entrar’ no templo ou ‘dar meia-volta’?” << endl;
+        cin >> escolha;
 
-        If (escolha == “Entrar”) {
-            Cout << “Dentro do templo, você encontrou um tesouro incrível! Você é rico!” << endl;
-        } else if (escolha == “Dar Meia-Volta”) {
-            Cout << “Você decidiu não entrar no templo e continua sua jornada.” << endl;
+        if (escolha == “entrar”) {
+            cout << “dentro do templo, você encontrou um tesouro incrível! você é rico!” << endl;
+        } else if (escolha == “dar meia-volta”) {
+            cout << “você decidiu não entrar no templo e continua sua jornada.” << endl;
         } else {
-            Cout << “Escolha inválida. Você ficou paralisado pelo medo.” << endl;
+            cout << “escolha inválida. você ficou paralisado pelo medo.” << endl;
         }
     } else {
-        Cout << “Escolha inválida. Você está perdido na floresta escura.” << endl;
+        cout << “escolha inválida. você está perdido na floresta escura.” << endl;
     }
 
-    Cout << “Fim do jogo.” << endl;
+    cout << “fim do jogo.” << endl;
 
-    Return 0;
+    return 0;
 }
