@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+Using namespace std;
+Int main() {
+    Cout << “Bem-vindo ao Jogo de RPG!” << endl;
+    Cout << “Você está em uma floresta escura e misteriosa.” << endl;
+    String escolha;
+        Cout << “Você quer seguir pela ‘Trilha Esquerda’ ou pela ‘Trilha Direita’?” << endl;
+    Cin >> escolha;
+    If (escolha == “Trilha Esquerda”) {
+        Cout << “Você encontrou um rio. Você quer ‘Nadar’ ou ‘Procurar uma Ponte’?” << endl;
+        Cin >> escolha;
+        If (escolha == “Nadar”) {
+            Cout << “Você nadou através do rio com sucesso e chegou à outra margem.” << endl;
+        } else if (escolha == “Procurar uma Ponte”) {
+            Cout << “Você encontrou uma ponte segura e atravessou o rio.” << endl;
+        } else {
+            Cout << “Escolha inválida. Você se perdeu na floresta.” << endl;
+        }
+    } else if (escolha == “Trilha Direita”) {
+        Cout << “Você se deparou com um misterioso templo antigo.” << endl;
+        Cout << “Você quer ‘Entrar’ no templo ou ‘Dar Meia-Volta’?” << endl;
+        Cin >> escolha;
+
+        If (escolha == “Entrar”) {
+            Cout << “Dentro do templo, você encontrou um tesouro incrível! Você é rico!” << endl;
+        } else if (escolha == “Dar Meia-Volta”) {
+            Cout << “Você decidiu não entrar no templo e continua sua jornada.” << endl;
+        } else {
+            Cout << “Escolha inválida. Você ficou paralisado pelo medo.” << endl;
+        }
+    } else {
+        Cout << “Escolha inválida. Você está perdido na floresta escura.” << endl;
+    }
+
+    Cout << “Fim do jogo.” << endl;
+
+    Return 0;
+}
