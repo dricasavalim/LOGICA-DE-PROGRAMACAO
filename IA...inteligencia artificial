@@ -1,59 +1,43 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 int main() {
-    cout << “olá, sou a inteligência artificial! vamos brincar?” << endl;
+    cout << "Olá, sou a inteligência artificial! Vamos brincar?" << endl;
     string nome;
-    cout << “qual é o seu nome? “;
+    cout << "Qual é o seu nome?";
     cin >> nome;
     int idade;
-    cout << “quantos anos você tem, “ << nome << “? “;
+    cout << "Quantos anos você tem, " << nome << "?";
     cin >> idade;
+    cin.ignore(); // Limpar o buffer de entrada
     string brincadeira;
-    cout << “o que você gosta de brincar, “ << nome << “? “;
-    cin.ignore(); // limpar o buffer de entrada
+    cout << "O que você gosta de brincar, " << nome << "?";
     getline(cin, brincadeira);
     string corfavorita;
-    cout << “qual é a sua cor favorita, “ << nome << “? “;
+    cout << "Qual é a sua cor favorita, " << nome << "?";
     cin >> corfavorita;
     char comesaladas;
-    cout << “você gosta de comer saladas? (s/n) “;
+    cout << "Você gosta de comer saladas? (s/n)";
     cin >> comesaladas;
 
     if (idade >= 6) {
-        cout << “que legal, você já está na idade de aprender a tabuada!” << endl;
+        cout << "Que legal, você já está na idade de aprender a tabuada!" << endl;
         int resposta;
         do {
-            cout << “qual é a resposta de 6x7? “;
+            cout << "Qual é a resposta de 6x7?";
             cin >> resposta;
             if (resposta == 42) {
-                cout << “parabéns, você acertou!” << endl;
+                cout << "Parabéns, você acertou!" << endl;
                 break;
             } else {
-                cout << “tente novamente.” << endl;
+                cout << "Tente novamente." << endl;
             }
         } while (true);
     }
-    if (corfavorita == “verde” || corfavorita == “verde”) {
-        cout << “verde é uma cor muito bonita, “ << nome << “!” << endl;
+
+    if (corfavorita == "verde" || corfavorita == "Verde") {
+        cout << "Verde é uma cor muito bonita, " << nome << "!" << endl;
     } else {
-        cout << “ah, “ << corfavorita << “ é uma cor legal também.” << endl;
-    }
-
-
-
-
-
-
-    if (comesaladas == ‘s’ || comesaladas == ‘s’) {
-        cout << “isso é ótimo, comer saladas é saudável!” << endl;
-    } else {
-        cout << “tudo bem, nem todo mundo gosta de saladas.” << endl;
-    }
-
-    cout << “foi legal conversar com você, “ << nome << “. até a próxima!” << endl;
-
-    return 0;
-}
-
-
+        cout << "Ah, " << corfavorita << " é uma cor legal também." << endl;
+   
