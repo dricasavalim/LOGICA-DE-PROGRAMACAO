@@ -1,0 +1,100 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string username;
+    string password;
+    double saldo = 1000.0;
+    double emprestimo = 0.0;
+
+    // Criação de usuário e senha
+    cout << "Criação de conta no caixa eletrônico" << endl;
+    cout << "Digite seu nome de usuário: ";
+    cin >> username;
+    cout << "Digite sua senha: ";
+    cin >> password;
+
+    cout << "Conta criada com sucesso!" << endl;
+
+    // Login
+    string inputUsername;
+    string inputPassword;
+
+    cout << "\nLogin no caixa eletrônico" << endl;
+    cout << "Nome de usuário: ";
+    cin >> inputUsername;
+    cout << "Senha: ";
+    cin >> inputPassword;
+
+    if (inputUsername == username && inputPassword == password) {
+        cout << "Login bem-sucedido!" << endl;
+
+        while (true) {
+            int escolha;
+
+            cout << "\nOpções disponíveis:" << endl;
+            cout << "1. Verificar saldo" << endl;
+            cout << "2. Fazer depósito" << endl;
+            cout << "3. Fazer saque" << endl;
+            cout << "4. Solicitar empréstimo" << endl;
+            cout << "5. Sair" << endl;
+            cout << "Escolha uma opção: ";
+            cin >> escolha;
+
+            switch (escolha) {
+                case 1: // Verificar saldo
+                    cout << "Saldo disponível: R$" << saldo << endl;
+                    break;
+
+                case 2: // Fazer depósito
+                    double deposito;
+                    cout << "Digite o valor do depósito: R$";
+                    cin >> deposito;
+                    saldo += deposito;
+                    cout << "Depósito realizado com sucesso. Saldo atual: R$" << saldo << endl;
+                    break;
+
+                case 3: // Fazer saque
+                    double saque;
+                    cout << "Digite o valor do saque: R$";
+                    cin >> saque;
+
+                    if (saque <= saldo) {
+                        saldo -= saque;
+                        cout << "Saque realizado com sucesso. Saldo atual: R$" << saldo << endl;
+                    } else {
+                        cout << "Saldo insuficiente para o saque." << endl;
+                    }
+                    break;
+
+                case 4: // Solicitar empréstimo
+                    double valorEmprestimo;
+                    cout << "Digite o valor desejado para o empréstimo: R$";
+                    cin >> valorEmprestimo;
+
+                    if (valorEmprestimo > 0) {
+                        saldo += valorEmprestimo;
+                        emprestimo += valorEmprestimo;
+                        cout << "Empréstimo de R$" << valorEmprestimo << " adicionado à sua conta. Saldo atual: R$" << saldo << endl;
+                    } else {
+                        cout << "Valor de empréstimo inválido." << endl;
+                    }
+                    break;
+
+                case 5: // Sair
+                    cout << "Saindo do caixa eletrônico. Obrigado por usar nossos serviços!" << endl;
+                    return 0;
+
+                default:
+                    cout << "Opção inválida. Por favor, escolha uma opção válida." << endl;
+                    break;
+            }
+        }
+    } else {
+        cout << "Nome de usuário ou senha incorretos. Tente novamente." << endl;
+    }
+
+    return 0;
+}
