@@ -5,27 +5,28 @@ using namespace std;
 int main() {
     cout << "Olá, sou a inteligência artificial! Vamos brincar?" << endl;
     string nome;
-    cout << "Qual é o seu nome?";
+    cout << "Qual é o seu nome? ";
     cin >> nome;
     int idade;
-    cout << "Quantos anos você tem, " << nome << "?";
+    cout << "Quantos anos você tem, " << nome << "? ";
     cin >> idade;
     cin.ignore(); // Limpar o buffer de entrada
     string brincadeira;
-    cout << "O que você gosta de brincar, " << nome << "?";
+    cout << "O que você gosta de brincar, " << nome << "? ";
+    cin.ignore(); // Limpar o buffer de entrada
     getline(cin, brincadeira);
     string corfavorita;
-    cout << "Qual é a sua cor favorita, " << nome << "?";
+    cout << "Qual é a sua cor favorita, " << nome << "? ";
     cin >> corfavorita;
     char comesaladas;
-    cout << "Você gosta de comer saladas? (s/n)";
+    cout << "Você gosta de comer saladas? (s/n) ";
     cin >> comesaladas;
 
     if (idade >= 6) {
         cout << "Que legal, você já está na idade de aprender a tabuada!" << endl;
         int resposta;
         do {
-            cout << "Qual é a resposta de 6x7?";
+            cout << "Qual é a resposta de 6x7? ";
             cin >> resposta;
             if (resposta == 42) {
                 cout << "Parabéns, você acertou!" << endl;
@@ -35,9 +36,19 @@ int main() {
             }
         } while (true);
     }
-
     if (corfavorita == "verde" || corfavorita == "Verde") {
         cout << "Verde é uma cor muito bonita, " << nome << "!" << endl;
     } else {
         cout << "Ah, " << corfavorita << " é uma cor legal também." << endl;
-   
+    }
+
+    if (comesaladas == 's' || comesaladas == 'S') {
+        cout << "Isso é ótimo, comer saladas é saudável!" << endl;
+    } else {
+        cout << "Tudo bem, nem todo mundo gosta de saladas." << endl;
+    }
+
+    cout << "Foi legal conversar com você, " << nome << ". Até a próxima!" << endl;
+
+    return 0;
+}
