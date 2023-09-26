@@ -1,43 +1,43 @@
 #include <iostream>
 #include <string>
-Using namespace std;
-Int main() {
-    Cout << “Olá, sou a Inteligência Artificial! Vamos brincar?” << endl;
-    String nome;
-    Cout << “Qual é o seu nome? “;
-    Cin >> nome;
-    Int idade;
-    Cout << “Quantos anos você tem, “ << nome << “? “;
-    Cin >> idade;
-    String brincadeira;
-    Cout << “O que você gosta de brincar, “ << nome << “? “;
-    Cin.ignore(); // Limpar o buffer de entrada
-    Getline(cin, brincadeira);
-    String corFavorita;
-    Cout << “Qual é a sua cor favorita, “ << nome << “? “;
-    Cin >> corFavorita;
-    Char comeSaladas;
-    Cout << “Você gosta de comer saladas? (S/N) “;
-    Cin >> comeSaladas;
+using namespace std;
+int main() {
+    cout << “olá, sou a inteligência artificial! vamos brincar?” << endl;
+    string nome;
+    cout << “qual é o seu nome? “;
+    cin >> nome;
+    int idade;
+    cout << “quantos anos você tem, “ << nome << “? “;
+    cin >> idade;
+    string brincadeira;
+    cout << “o que você gosta de brincar, “ << nome << “? “;
+    cin.ignore(); // limpar o buffer de entrada
+    getline(cin, brincadeira);
+    string corfavorita;
+    cout << “qual é a sua cor favorita, “ << nome << “? “;
+    cin >> corfavorita;
+    char comesaladas;
+    cout << “você gosta de comer saladas? (s/n) “;
+    cin >> comesaladas;
 
-    If (idade >= 6) {
-        Cout << “Que legal, você já está na idade de aprender a tabuada!” << endl;
-        Int resposta;
-        Do {
-            Cout << “Qual é a resposta de 6x7? “;
-            Cin >> resposta;
-            If (resposta == 42) {
-                Cout << “Parabéns, você acertou!” << endl;
-                Break;
+    if (idade >= 6) {
+        cout << “que legal, você já está na idade de aprender a tabuada!” << endl;
+        int resposta;
+        do {
+            cout << “qual é a resposta de 6x7? “;
+            cin >> resposta;
+            if (resposta == 42) {
+                cout << “parabéns, você acertou!” << endl;
+                break;
             } else {
-                Cout << “Tente novamente.” << endl;
+                cout << “tente novamente.” << endl;
             }
         } while (true);
     }
-    If (corFavorita == “verde” || corFavorita == “Verde”) {
-        Cout << “Verde é uma cor muito bonita, “ << nome << “!” << endl;
+    if (corfavorita == “verde” || corfavorita == “verde”) {
+        cout << “verde é uma cor muito bonita, “ << nome << “!” << endl;
     } else {
-        Cout << “Ah, “ << corFavorita << “ é uma cor legal também.” << endl;
+        cout << “ah, “ << corfavorita << “ é uma cor legal também.” << endl;
     }
 
 
@@ -45,15 +45,15 @@ Int main() {
 
 
 
-    If (comeSaladas == ‘S’ || comeSaladas == ‘s’) {
-        Cout << “Isso é ótimo, comer saladas é saudável!” << endl;
+    if (comesaladas == ‘s’ || comesaladas == ‘s’) {
+        cout << “isso é ótimo, comer saladas é saudável!” << endl;
     } else {
-        Cout << “Tudo bem, nem todo mundo gosta de saladas.” << endl;
+        cout << “tudo bem, nem todo mundo gosta de saladas.” << endl;
     }
 
-    Cout << “Foi legal conversar com você, “ << nome << “. Até a próxima!” << endl;
+    cout << “foi legal conversar com você, “ << nome << “. até a próxima!” << endl;
 
-    Return 0;
+    return 0;
 }
 
 
