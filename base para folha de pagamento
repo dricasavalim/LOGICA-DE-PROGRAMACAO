@@ -1,0 +1,39 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    float valorDaHora, horasTrabalhadas, salarioBruto, descontoIr, IR, INSS, FGTS, totalDeDescontos, salarioLiquido;
+
+    std::cout << "Digite quanto você recebe por hora: ";
+    std::cin >> valorDaHora;
+
+    std::cout << "Digite quantas horas você trabalhou esse mês: ";
+    std::cin >> horasTrabalhadas;
+
+    salarioBruto = valorDaHora * horasTrabalhadas;
+
+    if (salarioBruto <= 900)
+        descontoIr = 0.0;
+    else if (salarioBruto <= 1500)
+        descontoIr = 5;
+    else if (salarioBruto <= 2500)
+        descontoIr = 10;
+    else
+        descontoIr = 20;
+
+    IR = salarioBruto * (descontoIr / 100.0);
+    INSS = salarioBruto * (10 / 100.0);
+    FGTS = salarioBruto * (11 / 100.0);
+    totalDeDescontos = IR + INSS;
+    salarioLiquido = salarioBruto - totalDeDescontos;
+
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "\nSalário Bruto     : R$" << salarioBruto;
+    std::cout << "\n(-) IR (5%)       : R$" << IR;
+    std::cout << "\n(-) INSS (10%)    : R$" << INSS;
+    std::cout << "\nFGTS (11%)        : R$" << FGTS;
+    std::cout << "\nTotal de descontos: R$" << totalDeDescontos;
+    std::cout << "\nSalário Liquido   : R$" << salarioLiquido << std::endl;
+
+    return 0;
+}
