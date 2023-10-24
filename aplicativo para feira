@@ -1,0 +1,31 @@
+#include <iostream>
+
+int main() {
+    float morango, maca, valor;
+    
+    std::cout << "Digite quantos quilos de morango foram comprados: ";
+    std::cin >> morango;
+
+    std::cout << "Digite quantos quilos de maçã foram comprados: ";
+    std::cin.ignore(); // Para ignorar o caractere de quebra de linha residual
+    std::cin >> maca;
+
+    valor = 0;
+
+    if (morango <= 5)
+        valor += morango * 2.5;
+    else
+        valor += morango * 2.2;
+
+    if (maca <= 5)
+        valor += maca * 1.8;
+    else
+        valor += maca * 1.5;
+
+    if ((morango + maca) > 8 || valor > 25)
+        valor -= valor * 10 / 100;
+
+    std::cout << "O valor a ser pago é R$" << std::fixed << std::setprecision(2) << valor << std::endl;
+
+    return 0;
+}
