@@ -1,0 +1,57 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    float peso, preco_total, desconto;
+    char carne, pagamento;
+
+    std::cout << "Digite F para filé duplo, A para alcatra e P para picanha: ";
+    std::cin >> carne;
+
+    std::cout << "Digite quantos quilos dessa carne vai comprar: ";
+    std::cin >> peso;
+
+    std::cout << "Dinheiro ou cartão tabajara (5% de desconto)? D ou C: ";
+    std::cin >> pagamento;
+
+    preco_total = 0;
+
+    std::cout << "\nHipermercado Tabajara\nCupom fiscal\n";
+
+    if (carne == 'F' || carne == 'f') {
+        std::cout << "\nItem: Filé Duplo";
+        if (peso > 5)
+            preco_total = peso * 5.8;
+        else
+            preco_total = peso * 4.9;
+    } else if (carne == 'A' || carne == 'a') {
+        std::cout << "\nItem: Alcatra";
+        if (peso > 5)
+            preco_total = peso * 6.8;
+        else
+            preco_total = peso * 5.9;
+    } else if (carne == 'P' || carne == 'p') {
+        std::cout << "\nItem: Picanha";
+        if (peso > 5)
+            preco_total = peso * 7.8;
+        else
+            preco_total = peso * 6.9;
+    }
+
+    std::cout << "\nQuantidade: " << std::fixed << std::setprecision(2) << peso << " Kg";
+    std::cout << "\nPreço total: R$" << std::fixed << std::setprecision(2) << preco_total;
+
+    if (pagamento == 'D' || pagamento == 'd') {
+        std::cout << "\nTipo de pagamento: Dinheiro";
+        desconto = 0;
+        std::cout << "\nDesconto: R$" << std::fixed << std::setprecision(2) << desconto;
+        std::cout << "\nValor a pagar: R$" << std::fixed << std::setprecision(2) << (preco_total - desconto);
+    } else if (pagamento == 'C' || pagamento == 'c') {
+        std::cout << "\nTipo de pagamento: Cartão Tabajara";
+        desconto = preco_total * 5 / 100.0;
+        std::cout << "\nDesconto: R$" << std::fixed << std::setprecision(2) << desconto;
+        std::cout << "\nValor a pagar: R$" << std::fixed << std::setprecision(2) << (preco_total - desconto);
+    }
+
+    return 0;
+}
