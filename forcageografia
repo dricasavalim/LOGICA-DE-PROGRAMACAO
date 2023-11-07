@@ -1,0 +1,67 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <vector>
+#include <string>
+#include <algorithm>
+std::string escolherPalavraAleatoria() {
+    std::vector<std::string> palavras = {
+        "BRASIL", "CANADA", "JAPAO", "AUSTRALIA", "ARGENTINA",
+        "FRANCA", "ALEMANHA", "CHINA", "EGITO", "INDIA",
+        "ITALIA", "RUSSIA", "AFRICA", "AMERICA", "EUROPA",
+        "OCEANO", "MONTANHA", "RIO", "CACHOEIRA", "DESERTO",
+        "FLORESTA", "CONTINENTE", "CAPITAL", "FRONTIERA", "ILHA",
+        "LAGO", "MARE", "PENINSULA", "PLANALTO"
+    };
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    return palavras[std::rand() % palavras.size()];
+}
+std::string exibirPalavraOculta(const std::string& palavra, const std::vector<char>& letrasAdivinhadas) {
+    std::string palavraOculta;
+    for (char letra : palavra) {
+        if (std::find(letrasAdivinhadas.begin(), letrasAdivinhadas.end(), letra) != letrasAdivinhadas.end()) {
+            palavraOculta += letra;
+        } else {
+            palavraOculta += '_';
+        }
+    }
+    return palavraOculta;
+}
+int main() {
+    std::string palavraSecreta = escolherPalavraAleatoria();
+    std::vector<char> letrasAdivinhadas;
+    int tentativasRestantes = 6;
+    std::cout << "Bem-vindo ao Jogo da Forca - Geografia!\n";
+    std::cout << "Adivinhe a palavra secreta relacionada à geografia.\n";
+    do {
+        std::cout << "Palavra: " << exibirPalavraOculta(palavraSecreta, letrasAdivinhadas) << "\n";
+        std::cout << "Tentativas restantes: " << tentativasRestantes << "\n";
+        char tentativa;
+        std::cout << "Digite uma letra: ";
+        std::cin >> tentativa;
+        tentativa = std::toupper(tentativa);
+        if (std::find(letrasAdivinhadas.begin(), letrasAdivinhadas.end(), tentativa) != letrasAdivinhadas.end()) {
+            std::cout << "Você já tentou essa letra. Tente novamente.\n";
+            continue;
+        }
+        letrasAdivinhadas.push_back(tentativa);
+        if (palavraSecreta.find(tentativa) != std::string::npos) {
+            std::cout << "Letra correta!\n";
+        } else {
+            std::cout << "Letra incorreta. Tente novamente.\n";
+            tentativasRestantes--;
+        }
+        if (exibirPalavraOculta(palavraSecreta, letrasAdivinhadas) == palavraSecreta) {
+            std::cout << "Parabéns! Você acertou a palavra: " << palavraSecreta << "\n";
+            break;
+        }
+
+        if (tentativasRestantes == 0) {
+            std::cout << "Você perdeu! A palavra secreta era: " << palavraSecreta << "\n";
+            break;
+        }
+    } while (true);
+    return 0;
+}
+
+
