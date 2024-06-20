@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int matriz[3][3];
+
+    // Leitura dos elementos da matriz
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << "Digite o elemento [" << i << "][" << j << "]: ";
+            cin >> matriz[i][j];
+        }
+    }
+
+    // Soma das linhas
+    for (int i = 0; i < 3; i++) {
+        int somaLinha = 0;
+        for (int j = 0; j < 3; j++) {
+            somaLinha += matriz[i][j];
+        }
+        cout << "A soma da linha " << i << " é: " << somaLinha << endl;
+    }
+
+    // Soma das colunas
+    for (int j = 0; j < 3; j++) {
+        int somaColuna = 0;
+        for (int i = 0; i < 3; i++) {
+            somaColuna += matriz[i][j];
+        }
+        cout << "A soma da coluna " << j << " é: " << somaColuna << endl;
+    }
+
+    // Soma da diagonal principal
+    int somaDiagonalPrincipal = 0;
+    for (int i = 0; i < 3; i++) {
+        somaDiagonalPrincipal += matriz[i][i];
+    }
+    cout << "A soma da diagonal principal é: " << somaDiagonalPrincipal << endl;
+
+    // Soma da diagonal secundária
+    int somaDiagonalSecundaria = 0;
+    for (int i = 0; i < 3; i++) {
+        somaDiagonalSecundaria += matriz[i][2 - i];
+    }
+    cout << "A soma da diagonal secundária é: " << somaDiagonalSecundaria << endl;
+
+    return 0;
+}
