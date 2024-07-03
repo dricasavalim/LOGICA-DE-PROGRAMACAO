@@ -1,15 +1,17 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 int main() {
     cout << "bem-vindo ao jogo de rpg!" << endl;
     cout << "você está em uma floresta escura e misteriosa." << endl;
     string escolha;
     cout << "você quer seguir pela ‘trilha esquerda’ ou pela ‘trilha direita’?" << endl;
-    cin >> escolha;
+    getline(cin, escolha); // Use getline here
+
     if (escolha == "trilha esquerda") {
         cout << "você encontrou um rio. você quer ‘nadar’ ou ‘procurar uma ponte’?" << endl;
-        cin >> escolha;
+        getline(cin, escolha); // Use getline again
         if (escolha == "nadar") {
             cout << "você nadou através do rio com sucesso e chegou à outra margem." << endl;
         } else if (escolha == "procurar uma ponte") {
@@ -20,8 +22,7 @@ int main() {
     } else if (escolha == "trilha direita") {
         cout << "você se deparou com um misterioso templo antigo." << endl;
         cout << "você quer ‘entrar’ no templo ou ‘dar meia-volta’?" << endl;
-        cin >> escolha;
-
+        getline(cin, escolha); // Use getline again
         if (escolha == "entrar") {
             cout << "dentro do templo, você encontrou um tesouro incrível! você é rico!" << endl;
         } else if (escolha == "dar meia-volta") {
