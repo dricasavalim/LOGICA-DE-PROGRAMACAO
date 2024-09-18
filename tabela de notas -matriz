@@ -1,0 +1,28 @@
+#include <iostream>
+
+int main() {
+    std::string alunos[3] = {"Alice", "Bruno", "Carla"};
+    std::string disciplinas[4] = {"Matemática", "História", "Ciências", "Geografia"};
+    float notas[3][4] = {
+        {8.5, 7.0, 9.0, 6.5},
+        {7.5, 8.5, 8.0, 7.0},
+        {9.0, 9.5, 8.5, 8.0}
+    };
+
+    std::cout << "Tabela de Notas:\n\n";
+    std::cout << "Aluno       ";
+    for(int i = 0; i < 4; i++) {
+        std::cout << disciplinas[i] << "   ";
+    }
+    std::cout << "\n---------------------------------------\n";
+
+    for(int i = 0; i < 3; i++) {
+        std::cout << alunos[i] << "   ";
+        for(int j = 0; j < 4; j++) {
+            std::cout << notas[i][j] << "        ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
