@@ -1,0 +1,133 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+#define MAX_BOOKS 100
+#define TITLE_LENGTH 50
+#define AUTHOR_LENGTH 50
+
+using namespace std;
+
+class Book {
+public:
+    int id;
+    string title;
+    string author;
+    int quantity;
+    float price;
+
+    Book(int id, string title, string author, int quantity, float price)
+        : id(id), title(title), author(author), quantity(quantity), price(price) {}
+};
+
+vector<Book> inventory;
+int bookCount = 0;
+
+void addBook() {
+    if (bookCount >= MAX_BOOKS) {
+        cout << "Estoque cheio. Não é possível adicionar mais livros." << endl;
+        return;
+    }
+    
+    string title, author;
+    int quantity;
+    float price;
+    
+    cout << "Digite o título do livro: ";
+    getline(cin >> ws, title); // Using 'cin >> ws' to consume any leading whitespace
+    cout << "Digite o autor do livro: ";
+    getline(cin >> ws, author);
+    cout << "Digite a quantidade disponível: ";
+    cin >> quantity;
+    cout << "Digite o preço do livro: ";
+    cin >> price;
+    
+    inventory.emplace_back(++bookCount, title, author, quantity, price);
+    cout << "Livro adicionado com sucesso!" << endl;
+}
+
+void listBooks() {
+    if (inventory.empty()) {
+        cout << "Nenhum livro disponível no estoque." << endl;
+        return;
+    }
+
+    cout << "\nLista de livros disponíveis:" << endl;
+    for (const auto& book : inventory) {
+        cout << "ID: " << book.id << endl;
+        cout << "Título: " << book.title << endl;
+        cout << "Autor: " << book.author << endl;
+        cout << "Quantidade: " << book.quantity << endl;
+        cout << "Preço: R$ " << book.price << endl << endl;
+    }
+}
+
+void sellBook() {
+    int id;
+    cout << "Digite o ID do livro a ser vendido: ";
+    cin >> id;
+
+    for (auto& book : inventory) {
+        if (book.id == id) {
+            if (book.quantity > 0) {
+                book.quantity--;
+                cout << "Livro vendido com sucesso!" << endl;
+                return;
+            } else {
+                cout << "Estoque esgotado!" << endl;
+                return;
+            }
+        }
+    }
+    cout << "Livro não encontrado." << endl;
+}
+
+void showInventory() {
+    if (inventory.empty()) {
+        cout << "Nenhum livro disponível no estoque." << endl;
+        return;
+    }
+
+    cout << "\nEstoque atual de livros:" << endl;
+    for (const auto& book : inventory) {
+        cout << "ID: " << book.id << endl;
+        cout << "Título: " << book.title << endl;
+        cout << "Quantidade: " << book.quantity << endl;
+    }
+}
+
+int main() {
+    int choice;
+
+    while (true) {
+        cout << "\nGerenciador de Compra e Venda de Livros" << endl;
+        cout << "1. Adicionar livro" << endl;
+        cout << "2. Listar livros" << endl;
+        cout << "3. Vender livro" << endl;
+        cout << "4. Mostrar estoque" << endl;
+        cout << "5. Sair" << endl;
+        cout << "Escolha uma opção: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                addBook();
+                break;
+            case 2:
+                listBooks();
+                break;
+            case 3:
+                sellBook();
+                break;
+            case 4:
+                showInventory();
+                break;
+            case 5:
+                return 0;
+            default:
+                cout << "Opção inválida! Tente novamente." << endl;
+        }
+    }
+
+    return 0;
+}
