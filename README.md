@@ -1,1 +1,2 @@
-# 1info01 atividades de c++
+# Desenvolvimento de sistema disciplina Algoritimo e lógica de Programação 
+atividades de c++
