@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstdlib>  // Necessário para rand() e srand()
+#include <ctime>    // Necessário para time()
+
+int main() {
+    // Define a semente para a função rand()
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Lançamento do dado para o jogador 1
+    int dadoJogador1 = rand() % 6 + 1; // Gera um número aleatório entre 1 e 6
+    std::cout << "Jogador 1 rolou: " << dadoJogador1 << std::endl;
+
+    // Lançamento do dado para o jogador 2
+    int dadoJogador2 = rand() % 6 + 1; // Gera um número aleatório entre 1 e 6
+    std::cout << "Jogador 2 rolou: " << dadoJogador2 << std::endl;
+
+    // Determina o vencedor
+    if (dadoJogador1 > dadoJogador2) {
+        std::cout << "Jogador 1 vence!" << std::endl;
+    } else if (dadoJogador2 > dadoJogador1) {
+        std::cout << "Jogador 2 vence!" << std::endl;
+    } else {
+        std::cout << "Empate!" << std::endl;
+    }
+
+    return 0;
+}
