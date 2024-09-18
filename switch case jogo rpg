@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Personagem {
+public:
+    string nome;
+    string habilidade;
+
+    Personagem(string n, string h) : nome(n), habilidade(h) {}
+};
+
+int main() {
+    Personagem guerreiro("Guerreiro", "Força Bruta");
+    Personagem mago("Mago", "Magias Poderosas");
+    Personagem arqueiro("Arqueiro", "Precisão Letal");
+    Personagem ladino("Ladino", "Agilidade e Furtividade");
+
+    int escolha;
+
+    cout << "Escolha seu personagem:\n";
+    cout << "1. " << guerreiro.nome << " - " << guerreiro.habilidade << endl;
+    cout << "2. " << mago.nome << " - " << mago.habilidade << endl;
+    cout << "3. " << arqueiro.nome << " - " << arqueiro.habilidade << endl;
+    cout << "4. " << ladino.nome << " - " << ladino.habilidade << endl;
+
+    cout << "Digite o número do seu personagem: ";
+    cin >> escolha;
+
+    switch (escolha) {
+        case 1:
+            cout << "Você escolheu: " << guerreiro.nome << " com a habilidade: " << guerreiro.habilidade << endl;
+            break;
+        case 2:
+            cout << "Você escolheu: " << mago.nome << " com a habilidade: " << mago.habilidade << endl;
+            break;
+        case 3:
+            cout << "Você escolheu: " << arqueiro.nome << " com a habilidade: " << arqueiro.habilidade << endl;
+            break;
+        case 4:
+            cout << "Você escolheu: " << ladino.nome << " com a habilidade: " << ladino.habilidade << endl;
+            break;
+        default:
+            cout << "Escolha inválida!" << endl;
+            break;
+    }
+
+    return 0;
+}
