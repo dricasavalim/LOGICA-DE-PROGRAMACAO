@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Digite um número positivo: ";
+    cin >> num;
+
+    // Verifica se o número é positivo
+    if (num > 0) {
+        cout << "Você digitou um número positivo." << endl;
+    } else {
+        cout << "Você não digitou um número positivo." << endl;
+    }
+
+    // Contador para exibir os números de 1 até o número digitado
+    int contador = 1;
+    while (contador <= num) {
+        cout << contador << " ";
+        contador++;
+    }
+
+    cout << endl;
+    return 0;
+}
