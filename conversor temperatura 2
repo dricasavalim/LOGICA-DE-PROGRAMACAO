@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+// Função para converter Kelvin para Celsius
+double kelvinParaCelsius(double kelvin) {
+    return kelvin - 273.15;
+}
+
+// Função para converter Celsius para Fahrenheit
+double celsiusParaFahrenheit(double celsius) {
+    return (celsius * 9.0 / 5.0) + 32.0;
+}
+
+int main() {
+    // Declaração das variáveis
+    double kelvin, celsius, fahrenheit;
+
+    // Solicita e lê a temperatura em Kelvin
+    cout << "Digite a temperatura em Kelvin: ";
+    cin >> kelvin;
+
+    // Converte de Kelvin para Celsius
+    celsius = kelvinParaCelsius(kelvin);
+
+    // Converte de Celsius para Fahrenheit
+    fahrenheit = celsiusParaFahrenheit(celsius);
+
+    // Exibe os resultados
+    cout << "A temperatura em Celsius é: " << celsius << "°C" << endl;
+    cout << "A temperatura em Fahrenheit é: " << fahrenheit << "°F" << endl;
+
+    return 0;
+}
