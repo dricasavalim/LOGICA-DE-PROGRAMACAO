@@ -1,0 +1,32 @@
+class Animal {
+public:
+    virtual void som() {
+        cout << "Animal faz som" << endl;
+    }
+};
+
+class Cachorro : public Animal {
+public:
+    void som() override {
+        cout << "Cachorro late" << endl;
+    }
+};
+
+class Gato : public Animal {
+public:
+    void som() override {
+        cout << "Gato mia" << endl;
+    }
+};
+
+void fazerSom(Animal* a) {
+    a->som();
+}
+
+int main() {
+    Animal* animal1 = new Cachorro();
+    Animal* animal2 = new Gato();
+    fazerSom(animal1); // Saída: Cachorro late
+    fazerSom(animal2); // Saída: Gato mia
+    return 0;
+}
