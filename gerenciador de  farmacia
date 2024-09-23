@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+#define MAX_PRODUTOS 10
+#define MAX_CLIENTES 10
+#define MAX_FORNECEDORES 10
+
+struct Produto {
+    string nome;
+    double preco;
+    string descricao;
+};
+
+struct Cliente {
+    string nome;
+    string endereco;
+    string telefone;
+};
+
+struct Fornecedor {
+    string nome;
+    string endereco;
+    string telefone;
+};
+
+void cadastrarProduto(Produto produtos[], int &numProdutos) {
+    if (numProdutos >= MAX_PRODUTOS) {
+        cout << "Limite de produtos atingido!" << endl;
+        return;
+    }
+
+    cout << "Nome do produto: ";
+    cin.ignore();
+    getline(cin, produtos[numProdutos].nome);
+    cout << "Preco do produto: ";
+    cin >> produtos[numProdutos].preco;
+    cout << "Descricao do produto: ";
+    cin.ignore();
+    getline(cin, produtos[numProdutos].descricao);
+
+    numProdutos++;
+    cout << "Produto cadastrado com sucesso!" << endl;
+}
+
+void cadastrarCliente(Cliente clientes[], int &numClientes) {
+    if (numClientes >= MAX_CLIENTES) {
+        cout << "Limite de clientes atingido!" << endl;
+        return;
+    }
+
+    cout << "Nome do cliente: ";
+    cin.ignore();
+    getline(cin, clientes[numClientes].nome);
+    cout << "Endereco do cliente: ";
+    getline(cin, clientes[numClientes].endereco);
+    cout << "Telefone do cliente: ";
+    getline(cin, clientes[numClientes].telefone);
+
+    numClientes++;
+   
+
+
