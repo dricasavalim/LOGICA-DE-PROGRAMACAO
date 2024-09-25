@@ -1,0 +1,252 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+#define MAX_FUNCIONARIOS 100
+
+struct Funcionario {
+    string nome;
+    string cargo;
+    string departamento;
+    string telefone;
+    string email;
+};
+
+struct Saude {
+    string dataUltimoExame;
+    string tipoExame;
+    string resultadoExame;
+};
+
+struct Seguranca {
+    vector<string> treinamentos;
+    vector<string> datasTreinamentos;
+    vector<string> EPIs;
+    vector<string> datasEPIs;
+    vector<string> relatoriosIncidentes;
+    vector<string> datasIncidentes;
+    vector<string> descricoesIncidentes;
+};
+
+struct FuncionarioHSST {
+    Funcionario funcionario;
+    Saude saude;
+    Seguranca seguranca;
+};
+
+void cadastrarFuncionario(FuncionarioHSST funcionarios[], int &numFuncionarios) {
+    if (numFuncionarios >= MAX_FUNCIONARIOS) {
+        cout << "Limite de funcionarios atingido!" << endl;
+        return;
+    }
+
+    cout << "Nome: ";
+    cin.ignore();
+    getline(cin, funcionarios[numFuncionarios].funcionario.nome);
+    cout << "Cargo: ";
+    getline(cin, funcionarios[numFuncionarios].funcionario.cargo);
+    cout << "Departamento: ";
+    getline(cin, funcionarios[numFuncionarios].funcionario.departamento);
+    cout << "Telefone: ";
+    getline(cin, funcionarios[numFuncionarios].funcionario.telefone);
+    cout << "Email: ";
+    getline(cin, funcionarios[numFuncionarios].funcionario.email);
+
+    cout << "Funcionario cadastrado com sucesso!" << endl;
+    numFuncionarios++;
+}
+
+void registrarExameSaude(FuncionarioHSST funcionarios[], int numFuncionarios) {
+    string nome;
+    cout << "Nome do funcionario: ";
+    cin.ignore();
+    getline(cin, nome);
+
+    for (int i = 0; i < numFuncionarios; i++) {
+        if (funcionarios[i].funcionario.nome == nome) {
+            cout << "Data do ultimo exame (dd/mm/aaaa): ";
+            getline(cin, funcionarios[i].saude.dataUltimoExame);
+            cout << "Tipo de exame: ";
+            getline(cin, funcionarios[i].saude.tipoExame);
+            cout << "Resultado do exame: ";
+            getline(cin, funcionarios[i].saude.resultadoExame);
+            cout << "Exame registrado com sucesso!" << endl;
+            return;
+        }
+    }
+    cout << "Funcionario nao encontrado!" << endl;
+}
+
+void registrarTreinamentoSeguranca(FuncionarioHSST funcionarios[], int numFuncionarios) {
+    string nome;
+    cout << "Nome do funcionario: ";
+    cin.ignore();
+    getline(cin, nome);
+
+    for (int i = 0; i < numFuncionarios; i++) {
+        if (funcionarios[i].funcionario.nome == nome) {
+            string treinamento, data;
+            cout << "Tipo de treinamento: ";
+            getline(cin, treinamento);
+            cout << "Data do treinamento (dd/mm/aaaa): ";
+            getline(cin, data);
+
+            funcionarios[i].seguranca.treinamentos.push_back(treinamento);
+            funcionarios[i].seguranca.datasTreinamentos.push_back(data);
+            cout << "Treinamento registrado com sucesso!" << endl;
+            return;
+        }
+    }
+    cout << "Funcionario nao encontrado!" << endl;
+}
+
+void registrarEPI(FuncionarioHSST funcionarios[], int numFuncionarios) {
+    string nome;
+    cout << "Nome do funcionario: ";
+    cin.ignore();
+    getline(cin, nome);
+
+    for (int i = 0; i < numFuncionarios; i++) {
+        if (funcionarios[i].funcionario.nome == nome) {
+            string epi, data;
+            cout << "Equipamento de Protecao Individual (EPI): ";
+            getline(cin, epi);
+            cout << "Data de entrega (dd/mm/aaaa): ";
+            getline(cin, data);
+
+            funcionarios[i].seguranca.EPIs.push_back(epi);
+            funcionarios[i].seguranca.datasEPIs.push_back(data);
+            cout << "EPI registrado com sucesso!" << endl;
+            return;
+        }
+    }
+    cout << "Funcionario nao encontrado!" << endl;
+}
+
+void registrarIncidente(FuncionarioHSST funcionarios[], int numFuncionarios) {
+    string nome;
+    cout << "Nome do funcionario: ";
+    cin.ignore();
+    getline(cin, nome);
+
+    for (int i = 0; i < numFuncionarios; i++) {
+        if (funcionarios[i].funcionario.nome == nome) {
+            string incidente, data, descricao;
+            cout << "Tipo de incidente: ";
+            getline(cin, incidente);
+            cout << "Data do incidente (dd/mm/aaaa): ";
+            getline(cin, data);
+            cout << "Descricao do incidente: ";
+            getline(cin, descricao);
+
+            funcionarios[i].seguranca.relatoriosIncidentes.push_back(incidente);
+            funcionarios[i].seguranca.datasIncidentes.push_back(data);
+            funcionarios[i].seguranca.descricoesIncidentes.push_back(descricao);
+            cout << "Incidente registrado com sucesso!" << endl;
+            return;
+        }
+    }
+    cout << "Funcionario nao encontrado!" << endl;
+}
+
+void exibirFuncionarios(const FuncionarioHSST funcionarios[], int numFuncionarios) {
+    for (int i = 0; i < numFuncionarios; i++) {
+        cout << "Nome: " << funcionarios[i].funcionario.nome 
+             << ", Cargo: " << funcionarios[i].funcionario.cargo 
+             << ", Departamento: " << funcionarios[i].funcionario.departamento 
+             << ", Telefone: " << funcionarios[i].funcionario.telefone 
+             << ", Email: " << funcionarios[i].funcionario.email << endl;
+    }
+}
+
+void exibirExamesPendentes(const FuncionarioHSST funcionarios[], int numFuncionarios) {
+    for (int i = 0; i < numFuncionarios; i++) {
+        if (funcionarios[i].saude.dataUltimoExame.empty()) {
+            cout << "Nome: " << funcionarios[i].funcionario.nome 
+                 << ", Cargo: " << funcionarios[i].funcionario.cargo 
+                 << ", Departamento: " << funcionarios[i].funcionario.departamento << endl;
+        }
+    }
+}
+
+void exibirTreinamentosPendentes(const FuncionarioHSST funcionarios[], int numFuncionarios) {
+    for (int i = 0; i < numFuncionarios; i++) {
+        if (funcionarios[i].seguranca.treinamentos.empty()) {
+            cout << "Nome: " << funcionarios[i].funcionario.nome 
+                 << ", Cargo: " << funcionarios[i].funcionario.cargo 
+                 << ", Departamento: " << funcionarios[i].funcionario.departamento << endl;
+        }
+    }
+}
+
+void exibirRelatoriosIncidentes(const FuncionarioHSST funcionarios[], int numFuncionarios) {
+    for (int i = 0; i < numFuncionarios; i++) {
+        for (int j = 0; j < funcionarios[i].seguranca.relatoriosIncidentes.size(); j++) {
+            cout << "Nome: " << funcionarios[i].funcionario.nome 
+                 << ", Tipo de incidente: " << funcionarios[i].seguranca.relatoriosIncidentes[j] 
+                 << ", Data: " << funcionarios[i].seguranca.datasIncidentes[j] 
+                 << ", Descricao: " << funcionarios[i].seguranca.descricoesIncidentes[j] << endl;
+        }
+    }
+}
+
+int main() {
+    FuncionarioHSST funcionarios[MAX_FUNCIONARIOS];
+    int numFuncionarios = 0;
+    int opcao;
+
+    do {
+        cout << "\nMenu:\n";
+        cout << "1. Cadastrar Funcionario\n";
+        cout << "2. Registrar Exame de Saude\n";
+        cout << "3. Registrar Treinamento de Seguranca\n";
+        cout << "4. Registrar EPI\n";
+        cout << "5. Registrar Incidente\n";
+        cout << "6. Exibir Funcionarios\n";
+        cout << "7. Exibir Exames Pendentes\n";
+        cout << "8. Exibir Treinamentos Pendentes\n";
+        cout << "9. Exibir Relatorios de Incidentes\n";
+        cout << "10. Sair\n";
+        cout << "Escolha uma opcao: ";
+        cin >> opcao;
+
+        switch (opcao) {
+            case 1:
+                cadastrarFuncionario(funcionarios, numFuncionarios);
+                break;
+            case 2:
+                registrarExameSaude(funcionarios, numFuncionarios);
+                break;
+            case 3:
+                registrarTreinamentoSeguranca(funcionarios, numFuncionarios);
+                break;
+            case 4:
+                registrarEPI(funcionarios, numFuncionarios);
+                break;
+            case 5:
+                registrarIncidente(funcionarios, numFuncionarios);
+                break;
+            case 6:
+                exibirFuncionarios(funcionarios, numFuncionarios);
+                break;
+            case 7:
+                exibirExamesPendentes(funcionarios, numFuncionarios);
+                break;
+            case 8:
+                exibirTreinamentosPendentes(funcionarios, numFuncionarios);
+                break;
+            case 9:
+                exibirRelatoriosIncidentes(funcionarios, numFuncionarios);
+                break;
+            case 10:
+                cout << "Saindo..." << endl;
+                break;
+            default:
+                cout << "Opcao invalida!" << endl;
+        }
+    } while (opcao != 10);
+
+    return 0;
+}
